@@ -22,6 +22,7 @@ def get_transform(name = 'train',MEAN = None,STD = None):
                     ),
                     ToTensorV2()],bbox_params=A.BboxParams(format='pascal_voc',label_fields=['labels']))
         elif name == 'test':
+            print('test')
             return A.Compose([
                     A.Normalize(
                     mean = MEAN,
