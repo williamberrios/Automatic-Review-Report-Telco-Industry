@@ -23,14 +23,21 @@ def processing_images(df,my_detector,DATA_PATH,mode = 'images_train'):
         # Saving fecha:
         filename = os.path.join(DATA_PATH,'processed',mode,'fechas',f'{id_img}.jpg')
         cv2.imwrite(filename,fecha)
-        # Saving firma1:
-        #filename = os.path.join(DATA_PATH,'processed',mode,'firma1',f'{id_img}.jpg')
-        #cv2.imwrite(filename,firma1)
+        # Saving firma1 lado derecho:
         filename = os.path.join(DATA_PATH,'processed',mode,'firmas',f'{id_img}_1.jpg')
-        cv2.imwrite(filename,firma1)
-        
-        # Saving firma2:
-        #filename = os.path.join(DATA_PATH,'processed',mode,'firma2',f'{id_img}.jpg')
-        #cv2.imwrite(filename,firma2)
+        cv2.imwrite(filename,firma1)        
+        # Saving firma2 lado izquierdo:
         filename = os.path.join(DATA_PATH,'processed',mode,'firmas',f'{id_img}_2.jpg')
         cv2.imwrite(filename,firma2)
+
+        if mode == 'images_train':
+            sign_1 = str(df.iloc[idx]['sign_1'])
+            sign_2 = str(df.iloc[idx]['sign_2'])
+            
+            # Saving firma1  presence:1   absence :0
+            filename = os.path.join(DATA_PATH,'processed',mode,'firmas_modelo',sign_1,f'{id_img}_1.jpg')
+            cv2.imwrite(filename,firma1)
+            # Saving firma2  presence:1   absence :0
+            filename = os.path.join(DATA_PATH,'processed',mode,'firmas_modelo',sign_2,f'{id_img}_2.jpg')
+            cv2.imwrite(filename,firma2)
+
