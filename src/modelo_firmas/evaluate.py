@@ -3,7 +3,7 @@ import sys
 import glob
 import cv2
 import matplotlib.pyplot as plt
-from tqdm.notebook import tqdm
+from tqdm import tqdm
 
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import f1_score
@@ -59,11 +59,14 @@ def evaluate_data(model,path_dataset,tipo,WIDTH,HEIGHT):
     # labels, title and ticks
     ax.set_xlabel('Predicted labels');ax.set_ylabel('True labels'); 
     ax.set_title(tipo+' Confusion matrix - roc '+str(np.round(roc,2))+" f1 "+str(np.round(f1,2))); 
-    print('- roc '+str(np.round(roc,2))+" f1 "+str(np.round(f1,2)))
     ax.xaxis.set_ticklabels([0, 1]); ax.yaxis.set_ticklabels([0, 1]);
     
 
-    fig_cm.savefig("graficos/tresh_0.49_cm_model_roc_"+str(np.round(roc,4))+"_f1_"+str(np.round(f1,4))+"_"+tipo+"_.png", dpi=fig_cm.dpi)
+    fig_cm.savefig("graficos/confusion_matrix_"+tipo+".png", dpi=fig_cm.dpi)
+    print('Resultados de ',tipo)
+    print('-----------------------')
+    print(" roc :"+str(np.round(roc,2)))
+    print(" f1  :"+str(np.round(f1,2)))
 
     return predictions,y_test,fig_cm,roc,f1
 

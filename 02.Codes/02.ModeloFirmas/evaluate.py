@@ -20,10 +20,9 @@ WIDTH = 350
 HEIGHT = 100
 
 PATH_DATASET = '../../01.Datasets/processed/images_train/firmas_modelo/modelamiento/'
-PATH_RESULTS = 'models'
+PATH_RESULTS = '../../03.SavedModels'
 
-MODEL_NAME = 'modelo_v1.h5'
-BATCH_SIZE = 16
+MODEL_NAME = 'modelo_firmas.h5'
 
 
 def main():

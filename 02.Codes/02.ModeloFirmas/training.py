@@ -25,11 +25,12 @@ WIDTH = 350
 HEIGHT = 100
 
 PATH_DATASET = '../../01.Datasets/processed/images_train/firmas_modelo/modelamiento/'
-PATH_RESULTS = 'models'
+PATH_RESULTS = '../../03.SavedModels'
 
-MODEL_NAME = 'modelo_v1.h5'
+MODEL_NAME = 'modelo_firmas.h5'
 BATCH_SIZE = 16
 
+NUM_EPOCHS = 1000
 
 def main():
 
@@ -74,7 +75,7 @@ def main():
     mcp_save = ModelCheckpoint('.mdl_wts.hdf5', save_best_only=True, monitor='val_loss',mode='min')
 
     # Training
-    history = model.fit_generator(train_generator,steps_per_epoch= len(train_generator),epochs=5,
+    history = model.fit_generator(train_generator,steps_per_epoch= len(train_generator),epochs=NUM_EPOCHS,
         validation_data=validation_generator,validation_steps= len(validation_generator),callbacks=[earlyStopping, mcp_save])
     
     model.save(os.path.join(PATH_RESULTS,MODEL_NAME))

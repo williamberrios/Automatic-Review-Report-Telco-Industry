@@ -3,6 +3,9 @@ import tensorflow.keras.backend as K
 from numpy.linalg import norm
 import cv2
 import numpy as np
+import os
+import matplotlib.pyplot as plt
+
 
 class firmas_model:
     def __init__(self,filename):
@@ -32,35 +35,17 @@ class firmas_model:
 
         return 2*((precision*recall)/(precision+recall+K.epsilon()))
     
-    
-
-    def brightness(self,img):
-        if len(img.shape) == 3:
-            # Colored RGB or BGR (*Do Not* use HSV images with this function)
-            # create brightness with euclidean norm
-            return np.average(norm(img, axis=2)) / np.sqrt(3)
-        else:
-            # Grayscale
-            return np.average(img)
-    def adjust_gamma(self,image, gamma=1.0):
-        # build a lookup table mapping the pixel values [0, 255] to
-        # their adjusted gamma values
-        invGamma = 1.0 / gamma
-        table = np.array([((i / 255.0) ** invGamma) * 255
-            for i in np.arange(0, 256)]).astype("uint8")
-        # apply gamma correction using the lookup table
-        return cv2.LUT(image, table)    
-    
-    def predict(self,img_rgb,threshold = 0.49):
-        #if self.brightness(img_rgb)<101:
-        #    img_rgb = self.adjust_gamma(img_rgb,1.25)/255.0
-        #else:
-        #    img_rgb = img_rgb.copy()/255.0
+    def preprocessing(self,img_rgb):
+        
+        cv2.imwrite('auxiliar.jpg',img_rgb)
+        img_rgb = plt.imread('auxiliar.jpg')
+        os.remove('auxiliar.jpg')
         img_rgb = cv2.resize(img_rgb,(self.WIDTH,self.HEIGHT))
         img_rgb = img_rgb/255.0
         img = np.reshape(img_rgb,(-1,self.HEIGHT, self.WIDTH,3))
-        #img = cv2.resize(img_rgb,(150,150))
-        #img = np.reshape(img,(-1,150,150,3))
+        return img
+    def predict(self,img_rgb,threshold = 0.49):
+        img = self.preprocessing(img_rgb)
         prediction = self.model.predict(img)
         clase = 0 if prediction[0][0]< threshold else 1
         return clase,prediction[0][0]
