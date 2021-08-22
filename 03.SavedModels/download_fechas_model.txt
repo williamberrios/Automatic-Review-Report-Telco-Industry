@@ -1,0 +1,2 @@
+# Donwload pytorch model and save it here
+https://drive.google.com/file/d/1jaB_hQHKX4s_s0suTp765D8nP2_JkX84/view?usp=sharing
