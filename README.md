@@ -1,7 +1,7 @@
 <!-- #region -->
 <p align="center">
     <img src="04.Resources/header.png"
-     width="1200" height="400"/>
+     width="1200" height="150"/>
 </p>
 
 
@@ -26,7 +26,7 @@ Our solution is divided in 3 main parts:
 
 ### 01. Pre-processing images
 
-    Image aligment and standarization of orientation, size, proportion and JGP format.
+Image aligment and standarization of orientation, size, proportion and JGP format.
 
 <p align="center">
     <img src="04.Resources/Methodology/01_image_processing.jpeg" 
@@ -35,7 +35,7 @@ Our solution is divided in 3 main parts:
 
 ### 02. Sign detection model
 
-    CNN architecture to binary classification in order to know is the sign is present or not.
+CNN architecture to binary classification in order to know is the sign is present or not.
 
 <p align="center">
     <img src="04.Resources/Methodology/02_modelo_firmas.jpeg" 
@@ -44,7 +44,7 @@ Our solution is divided in 3 main parts:
 
 ### 03. Date recognition model
 
-    FasterRCNN - based object detection approach for recognizing date characters
+FasterRCNN - based object detection approach for recognizing date characters
 
 <p align="center">
     <img src="04.Resources/Methodology/03_modelo_fechas.jpeg" 
