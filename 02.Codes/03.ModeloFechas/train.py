@@ -57,7 +57,7 @@ def train():
 if __name__ == '__main__':
     train()
 
-'''
+"""
 def predict(test,config,image_dir_test,classes,nms = 0.2):
     # Generate Model
     model = FasterRCNNTorchVision(config.name_model,
@@ -74,10 +74,9 @@ def predict(test,config,image_dir_test,classes,nms = 0.2):
     df = trainer.predict_nms(test = test,image_dir_test = image_dir_test,classes = data_dict, nms = 0.2)
     df = get_date_from_prediction(df)
     return df
-'''
 
-# +
-#data_dict   = open(os.path.join(DATA_PATH,"data_dict.pkl"), "rb")
-#data_dict   = pickle.load(data_dict)
-#df_test     = pd.read_csv(os.path.join(DATA_PATH,"test_date_detection.csv"))
-#df_test     = predict(df_test,config,'',data_dict,nms = 0.2)
+data_dict   = open(os.path.join(DATA_PATH,"data_dict.pkl"), "rb")
+data_dict   = pickle.load(data_dict)
+df_test     = pd.read_csv(os.path.join(DATA_PATH,"test_date_detection.csv"))
+df_test     = predict(df_test,config,'',data_dict,nms = 0.2)
+"""
