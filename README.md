@@ -1,23 +1,15 @@
-# DATATHON ENTEL 2021 - DETECCIÓN DE OBJETOS
-
-## Team InsightML : 
-    - Cristian Lazo Quispe
-    - William Berrios Rojas
-    - Renato Castro Cruz
-
+<!-- #region -->
+<p align="center">
+    <img src="04.Resources/header.png"
+     width="1200" height="400"/>
+</p>
 
 
-## Challenge description
-[Link to Datathon](https://www.kaggle.com/c/datathon-entel-2021-reto1/data)
+## Objective
 
-The challenge involves developing an object detection and OCR model to automate the review of documents that a technician collects during each installation visit and that are then manually reviewed when they are delivered to their base, which could lead to human error.
+The [challenge](https://www.kaggle.com/c/datathon-entel-2021-reto1/data) involves developing an object detection and OCR model to automate the review of documents that a technician collects during each installation visit and that are then manually reviewed when they are delivered to their base, which could lead to human error.
     
-
-
-
-    
-
-## Target
+## Description
 
 For this challenge we are only asked to determine the location of 3 fields of the format (2 signatures and 1 date) and to obtain the handwritten date separated in day month and year.
 
@@ -26,12 +18,13 @@ For this challenge we are only asked to determine the location of 3 fields of th
      width="300" height="400"/>
 </p>
 
+<!-- #endregion -->
 
 ## Solution
 
 Our solution is divided in 3 main parts:
 
-01. Pre-processing images
+### 01. Pre-processing images
 
     Image aligment and standarization of orientation, size, proportion and JGP format.
 
@@ -40,7 +33,7 @@ Our solution is divided in 3 main parts:
      width="800" height="400"/>
 </p>
 
-02. Sign detection model
+### 02. Sign detection model
 
     CNN architecture to binary classification in order to know is the sign is present or not.
 
@@ -48,11 +41,10 @@ Our solution is divided in 3 main parts:
     <img src="04.Resources/Methodology/02_modelo_firmas.jpeg" 
      width="800" height="300"/>
 </p>
-    
 
-03. Date recognition model
+### 03. Date recognition model
 
-    CNN-based object detection approach for recognizing date characters
+    FasterRCNN - based object detection approach for recognizing date characters
 
 <p align="center">
     <img src="04.Resources/Methodology/03_modelo_fechas.jpeg" 
@@ -171,3 +163,14 @@ Our solution is divided in 3 main parts:
         ├── config.py
         └── submissions
             └── final_submission.csv
+
+
+## Team: Insight_ML: 
+
++ ### Members
+
+
+    . Cristian Lazo Quispe
+    . William Berrios Rojas
+    . Renato Castro Cruz
+
