@@ -78,10 +78,12 @@ def main():
     history = model.fit_generator(train_generator,steps_per_epoch= len(train_generator),epochs=NUM_EPOCHS,
         validation_data=validation_generator,validation_steps= len(validation_generator),callbacks=[earlyStopping, mcp_save])
     
+    # Con el early stopping converge en 500 epocas aproximadamente
     model.save(os.path.join(PATH_RESULTS,MODEL_NAME))
     
     fig_model_performance = plot_history(history)
-    fig_model_performance.savefig("graficos/metricas de training.jpg")
+    fig_model_performance.suptitle("tresh_0.49_model_roc_1.0_f1_1.0") 
+    fig_model_performance.savefig("graficos/metricas de training.png")
 
 if __name__ == '__main__':
     main()
