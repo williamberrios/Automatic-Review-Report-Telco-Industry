@@ -55,32 +55,33 @@ FasterRCNN - based object detection approach for recognizing date characters
 ## Getting Started
 
 
-01. Clone our repository
+### 1. Clone our repository
 
-        $ git clone https://github.com/williamberrios/Datathon-Entel-Object-Dectection.git
-
-02. Downloading dataset
+```shell
+$ git clone https://github.com/williamberrios/Datathon-Entel-Object-Dectection.git
+```
+### 2. Downloading dataset
         
     https://www.kaggle.com/c/datathon-entel-2021-reto1/data
     
-03. Prepare your enviroment
+## 3.Prepare your enviroment
+```shell
+$ pip install -r requirements.txt
+```
 
-        $ pip install -r requirements.txt
-
-
-    You can follow the whole methodology to obtain our results, or you can go directly to step 09.Main to process the test data with the trained models.
+    You can follow the whole methodology to obtain our results, or you can go directly to step "9" to process the test data with the trained models.
         
     Donwload pytorch date recognition model and save it in 03.SavedModels folder
 
     https://drive.google.com/file/d/1jaB_hQHKX4s_s0suTp765D8nP2_JkX84/view?usp=sharing
 
 
-04. Pre-processing dataset
-
-        $ cd 02.Codes
-        $ cd 01.PeprocesingImages
-        $ python ImagePreprocessing.py
-
+### 4.Pre-processing dataset
+```shell
+$ cd 02.Codes
+$ cd 01.PeprocesingImages
+$ python ImagePreprocessing.py
+```
     After the pre-processing we obtain this structure:
 
         ├processed        
@@ -99,9 +100,9 @@ FasterRCNN - based object detection approach for recognizing date characters
 
 
 
-05. Labeling TRAIN dataset 
+### 5.Labeling the train dataset for object detection
 
-    Once we have obtained the aligned image of the date, we can do the labeling of each character using the free software labelImg
+    Once we have obtained the aligned image of the date, and split the date. We can do the labeling of each character using the free project [labelImg](https://github.com/tzutalin/labelImg)
 
     After that, we obtain this structure:
 
@@ -110,53 +111,58 @@ FasterRCNN - based object detection approach for recognizing date characters
         └── classes.txt
         
 <p align="center">
-    <img src="04.Resources/GettingStarted/03.LabelingTrainDataset.jpeg" 
+    <img src="04.Resources/labeling.gif" 
      width="600" height="300"/>
 </p>
 
 
 
+<!-- #region -->
+### 6. Training & Evaluating sign model detection
+```shell
+$ cd 02.Codes
+$ cd 02.ModeloFirmas
+$ python training.py
+$ python evaluate.py
+```
 
-06. Training sign model detection
-
-        $ cd 02.Codes
-        $ cd 02.ModeloFirmas
-        $ python training.py
-    
-<p align="center">
-    <img src="04.Resources/GettingStarted/02.TrainingModelFirmas.jpeg" 
-     width="600" height="600"/>
-</p>
-
-07. Evaluate sign model detection
-
-        $ cd 02.Codes
-        $ cd 02.ModeloFirmas
-        $ python evaluate.py
-
-<p align="center">
-    <img src="04.Resources/GettingStarted/02.EvaluateModeloFirmas.jpeg" 
-     width="600" height="300"/>
-</p>
+<div class="row" style="display: flex;flex-flow: row wrap;justify-content: space-between;">
+  <div class="column" style="text-align:center;width:50%" >
+   Training and Validation Loss
+  </div>
+  <div class="column" style="text-align:center;width:50%">
+   Confusion Matrix
+  </div>
+</div>
 
 
-08. Trainig date recognition model
+<div class="row" style="display: flex;flex-flow: row wrap;justify-content: space-between;">
+  <div class="column">
+    <img src="04.Resources/GettingStarted/02.TrainingModelFirmas.jpeg" alt="Snow" >
+  </div>
+  <div class="column",style="margin:auto">
+    <img src="04.Resources/GettingStarted/02.EvaluateModeloFirmas.jpeg" alt="Mountains">
+  </div>
+</div>
+<!-- #endregion -->
 
-        
-        $ cd 02.Codes
-        $ cd 03.ModeloFechas
-        $ #run jupyter notebook  01.GenerateDataset-Fechas.ipynb
-        $ python train.py
+<!-- #region -->
+### 8. Trainig date recognition model
+
+```shell
+$ cd 02.Codes
+$ cd 03.ModeloFechas
+$ run jupyter notebook  01.GenerateDataset-Fechas.ipynb
+$ python train.py
+```
 
 
-
-09. Main process
-
-        $ cd 02.Codes
-        $ cd 04.Main
-        $ #run jupyter notebook 01-Main.ipynb
-
-    
+### 9.Main process
+```shell
+$ cd 02.Codes
+$ cd 04.Main
+$ run jupyter notebook 01-Main.ipynb
+```
     We obtain the final submission 
 
         ├── 01-Main.ipynb
@@ -164,13 +170,12 @@ FasterRCNN - based object detection approach for recognizing date characters
         └── submissions
             └── final_submission.csv
 
-
 ## Team: Insight_ML: 
+#### Members
 
-+ ### Members
 
++ [Cristian Lazo Quispe](https://www.linkedin.com/in/cristian-lazo-quispe/)
++ [William Berrios Rojas](https://www.linkedin.com/in/williamberrios96/)
++ [Renato Castro Cruz](https://www.linkedin.com/in/renato-castro-cruz-317404137/)
 
-    . Cristian Lazo Quispe
-    . William Berrios Rojas
-    . Renato Castro Cruz
-
+<!-- #endregion -->
