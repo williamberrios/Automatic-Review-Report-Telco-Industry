@@ -3,6 +3,7 @@ import glob
 import os
 import cv2
 import pandas as pd
+import numpy as np
 
 def generate_df(DATA_PATH,dict_classes,mode = 'train'):
     images_list = glob.glob(os.path.join(DATA_PATH,'labeling',mode,'*.txt'))[:-1]
@@ -37,3 +38,44 @@ def generate_df(DATA_PATH,dict_classes,mode = 'train'):
     return pd.DataFrame(data)
 
 
+# -
+
+def apply_encoding_date(row):
+    # Applyng postprocessing for getting day,month,date from text
+    if row['date_txt']=='0-0-0':
+        return '0','0','0'
+    val = row['date_txt'].split('-')
+    val = [i for i in val if (i!=' ')&(i!='')]
+    vector = [np.nan,np.nan,np.nan]
+    for i in range(len(vector)):
+        try:
+            vector[i] = val[i]
+        except:
+            pass
+    try:
+        if len(vector[2])>2:
+            vector[2] = '2021'
+        elif len(vector[2])==2:
+            vector[2] = '21'
+        else:
+            vector[2] = '2021'
+    except:
+        pass
+    
+    try:
+        if len(vector[1])>2:
+            vector[1] = '05'
+    except:
+        pass
+    
+    try:
+        if len(vector[0])>2:
+            vector[1] = '04'
+    except:
+        pass
+    return vector[0],vector[1],vector[2]
+
+
+def get_date_from_prediction(df):
+    df[['date_day','date_month','date_year']] = df.apply(lambda x:apply_encoding_date(x),axis = 1,result_type='expand')
+    return df

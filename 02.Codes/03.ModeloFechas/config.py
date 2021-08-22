@@ -1,7 +1,7 @@
 # +
 # General Parameters
 seed           = 42
-epochs         = 1 # 250
+epochs         = 250
 device         = 'cuda'
 lr             = 1e-4
 batch_size     = 8
