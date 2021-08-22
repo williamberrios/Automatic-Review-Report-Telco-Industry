@@ -166,6 +166,4 @@
         ├── 01-Main.ipynb
         ├── config.py
         └── submissions
-            ├── final_submission.csv
-            └── submission_.csv
-
+            └── final_submission.csv
