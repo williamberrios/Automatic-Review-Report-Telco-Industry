@@ -68,12 +68,8 @@ $ git clone https://github.com/williamberrios/Datathon-Entel-Object-Dectection.g
 ```shell
 $ pip install -r requirements.txt
 ```
-
-    You can follow the whole methodology to obtain our results, or you can go directly to step "9" to process the test data with the trained models.
-        
-    Donwload pytorch date recognition model and save it in 03.SavedModels folder
-
-    https://drive.google.com/file/d/1jaB_hQHKX4s_s0suTp765D8nP2_JkX84/view?usp=sharing
+You can follow the whole methodology to obtain our results, or you can go directly to step "9" to process the test data with the trained models.
+Donwload pytorch date recognition [model](https://drive.google.com/file/d/1jaB_hQHKX4s_s0suTp765D8nP2_JkX84/view?usp=sharing) and save it in 03.SavedModels folder 
 
 
 ### 4.Pre-processing dataset
@@ -102,7 +98,7 @@ $ python ImagePreprocessing.py
 
 ### 5.Labeling the train dataset for object detection
 
-    Once we have obtained the aligned image of the date, and split the date. We can do the labeling of each character using the free project [labelImg](https://github.com/tzutalin/labelImg)
+Once we have obtained the aligned image of the date, and split the date. We can do the labeling of each character using the free project [labelImg](https://github.com/tzutalin/labelImg)
 
     After that, we obtain this structure:
 
