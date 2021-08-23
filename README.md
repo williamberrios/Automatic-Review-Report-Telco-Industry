@@ -22,7 +22,7 @@ For this challenge we are only asked to determine the location of 3 fields of th
 
 ## Solution
 
-Our solution is divided in 3 main parts:
+Our solution is **totally free** and not depending of any api's that might involucrate a cost in the near futures. It is divided into 3 main parts:
 
 ### 01. Pre-processing images
 
