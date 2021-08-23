@@ -170,8 +170,8 @@ $ run jupyter notebook 01-Main.ipynb
         └── submissions
             └── final_submission.csv
 
-## Team: Insight_ML: 
-#### Members
+## Team: Insight_ML 
+#### Members:
 
 
 + [Cristian Lazo Quispe](https://www.linkedin.com/in/cristian-lazo-quispe/)
