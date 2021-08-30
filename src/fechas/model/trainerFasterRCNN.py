@@ -272,11 +272,11 @@ class TrainerFasterRCNN:
             if sch_params['name'] == 'StepLR':
                 return torch.optim.lr_scheduler.StepLR(self.optimizer, 
                                                        step_size = sch_parmas['step_size'], 
-                                                       gamma     = getattr(sch_params,'gamma',0.1))
+                                                       gamma     = sch_params.get('gamma',0.1)
             elif sch_params['name'] == 'Plateu': 
                 return torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, 
                                                                   mode      = self.config.mode, 
-                                                                  factor    = getattr(sch_params,'factor',0.1), 
+                                                                  factor    = sch_params.get('factor',0.1), 
                                                                   patience  = sch_params['patience'], 
                                                                   threshold = 0)
             elif sch_params['name'] == None:
@@ -292,9 +292,9 @@ class TrainerFasterRCNN:
         op_params = self.config.optimizer_params
                                                        
         if op_params['name'] == 'Adam':
-            return torch.optim.Adam(self.model.parameters(),lr = self.config.lr, weight_decay = getattr(op_params,'WD',0))
+            return torch.optim.Adam(self.model.parameters(),lr = self.config.lr, weight_decay = op_params.get('WD',0))
         if op_params['name'] == 'SGD':
-            return torch.optim.SGD(self.model.parameters(), lr = self.config.lr , weight_decay = getattr(op_params,'WD',0))
+            return torch.optim.SGD(self.model.parameters(), lr = self.config.lr , weight_decay =  op_params.get('WD',0))
         else: 
             raise Exception('Please choose a valid optimizer')
     

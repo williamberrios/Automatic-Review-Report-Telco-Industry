@@ -20,7 +20,7 @@ early_stopping = 5
 mode           = 'min'
 # Optimizer:
 optimizer_params = {'name':'Adam',
-                         'WD'  : 1e-6}
+                         'WD'  : 0}
 # Scheduler:
 scheduler_params = {'name':'Plateu',
                          'mode':None,
