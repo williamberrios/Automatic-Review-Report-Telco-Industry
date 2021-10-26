@@ -1,0 +1,18 @@
+{
+  "image": "url",
+  "data": {
+    "id": 1,
+    "rutafirma1": "url",
+    "rutafirma2": "url",
+    "rutafecha": "url",
+    "firma1": 1,
+    "firma2": 1,
+    "fecha": "29-01-2020"
+  },
+  "reporte": {
+    "id": 1,
+    "firma1": 1,
+    "firma2": 1,
+    "fecha": "29-01-2020"
+  }
+}

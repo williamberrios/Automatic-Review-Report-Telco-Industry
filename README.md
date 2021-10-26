@@ -165,6 +165,8 @@ $ run jupyter notebook 01-Main.ipynb
         ├── config.py
         └── submissions
             └── final_submission.csv
+### 10. Deployment
+You can check inside 04.Resources/Videos in order to see a video demostration of the deployment using Vue, JavaScript and python.
 
 ## Team: Insight_ML 
 #### Members:
